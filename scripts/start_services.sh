@@ -10,7 +10,7 @@ nohup openbox-session > ~/.vnc/openbox.log 2>&1 &
 #   and select window.
 
 #nohup xfce4-panel > /dev/null 2>&1 &
-nohup fbpanel > /dev/null 2>&1 &
+
 
 if false && [[ ! -d ~/.config/xfce4/panel ]]
 then
@@ -41,8 +41,6 @@ then
 	fi
 
 fi
-
-/usr/scripts/attach_displays.sh &
 
 nohup x11vnc -localhost -usepw -display :1 -geometry 1024x768 -forever -bg > ~desktop/.vnc/x11vnc.log 2>&1
 websockify -D --web /home/desktop/noVNC/ 6080 127.0.0.1:5900

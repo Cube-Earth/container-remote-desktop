@@ -23,16 +23,23 @@ RUN apt-get update && apt-get install -y xdm openbox obconf obmenu fbpanel gcolo
     cp /etc/xdg/openbox/rc.xml /home/desktop/.config/openbox/rc.xml && \
     cp /usr/share/fbpanel/default /usr/share/fbpanel/pager /home/desktop/.config/fbpanel/ && \
     chown -R desktop /home/desktop/.config/ /home/desktop/.local/
-    
+
+RUN apt-get install -y xrdp && \
+	cd /etc/xrdp && xrdp-keygen xrdp
+#	echo openbox-session > /home/desktop/.xsession
+
+# xrdp-genkeymap for switching keyboard layout??    
 
 RUN sh -c "echo desktop:changeme | chpasswd"
 			 
-EXPOSE 22
+EXPOSE 22 3389
+
+COPY startwm.sh /etc/xrdp/
 
 COPY scripts/*.sh /usr/scripts/
 RUN chmod -R +x /usr/scripts
 
-COPY home/* /home/desktop/
+COPY home/ /home/desktop/
 RUN chown -R desktop /home/desktop
 
 ENTRYPOINT [ "/usr/scripts/exec.sh" ]

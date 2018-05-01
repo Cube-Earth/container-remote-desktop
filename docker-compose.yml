@@ -10,6 +10,7 @@ services:
     image: cubeearth/remote-desktop
     ports:
     - "2222:22"
+    - "3389:3389"
 #    environment:
 #    - PASSWORD=a 
     volumes:

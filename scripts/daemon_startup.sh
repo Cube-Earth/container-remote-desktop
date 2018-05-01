@@ -18,5 +18,12 @@ then
 fi
 rm /tmp/.X1-lock /tmp/.X11-unix/X1
 sudo -i -u desktop /usr/scripts/start_services.sh
+
+# for debugging purposes stop xrdp and xrdp-sesman and invoke them via "sudo xrdp -ns &" and "sudo xrdp-sesman -ns &" to get logging messages inside the console output
+xrdp
+xrdp-sesman
+
+chown -R root /tmp/.X11-unix
+
 echo "starting sshd ..."
 /usr/sbin/sshd -d -D
