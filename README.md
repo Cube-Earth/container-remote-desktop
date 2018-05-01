@@ -22,11 +22,9 @@ You should provide the environment variable ```PASSWORD``` for the container exe
 # Example usage
 ## Startup
 ```
-curl -O docker-compose-headless-desktop.yml https://raw.githubusercontent.com/Cube-Earth/container-headless-desktop/master/docker-compose.yml
-curl -O docker-compose-remote-desktop.yml https://raw.githubusercontent.com/Cube-Earth/container-remote-desktop/master/docker-compose.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/Cube-Earth/container-headless-desktop/master/docker-compose-example.yml
 
-docker-compose -f docker-compose-headless-desktop.yml up -d
-docker-compose -f docker-compose-remote-desktop.yml up -d
+docker-compose up -d
 ```
 
 ## Access via VNC
