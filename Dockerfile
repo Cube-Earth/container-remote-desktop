@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y websockify net-tools && \
 RUN apt-get update && apt-get install -y socat && \
 	echo "export CONTAINER_LABEL=remote_desktop" >> /etc/profile
 	
-RUN apt-get update && apt-get install -y xdm openbox obconf obmenu fbpanel gcolor2 nautilus && \
+RUN add-apt-repository universe && apt-get update && apt-get install -y xdm openbox obconf obmenu fbpanel gcolor2 nautilus && \
     mkdir -p /home/desktop/.config/openbox /home/desktop/.local/share/applications /home/desktop/.config/fbpanel && \
     cp /etc/xdg/openbox/rc.xml /home/desktop/.config/openbox/rc.xml && \
     cp /usr/share/fbpanel/default /usr/share/fbpanel/pager /home/desktop/.config/fbpanel/ && \
@@ -26,7 +26,6 @@ RUN apt-get update && apt-get install -y xdm openbox obconf obmenu fbpanel gcolo
 
 RUN apt-get install -y xrdp && \
 	cd /etc/xrdp && xrdp-keygen xrdp
-#	echo openbox-session > /home/desktop/.xsession
 
 # xrdp-genkeymap for switching keyboard layout??    
 
