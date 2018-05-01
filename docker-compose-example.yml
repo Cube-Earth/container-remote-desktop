@@ -1,0 +1,16 @@
+version: '2'
+services:
+  headless:
+    image: cubeearth/headless-desktop
+    environment:
+      - STARTUP=xclock
+    volumes:
+    - $HOME/.containers/xpra/sockets:/var/run/xpra:rw
+  remote:
+    image: cubeearth/remote-desktop
+    ports:
+    - "2222:22"
+    - "3389:3389"
+    volumes:
+    - $HOME/.containers/xpra/sockets:/var/run/xpra:rw
+
