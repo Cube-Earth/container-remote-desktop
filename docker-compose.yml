@@ -1,0 +1,19 @@
+version: '2'
+services:
+  main:
+    build:
+        context: .
+        args:
+            - http_proxy
+            - https_proxy
+            - no_proxy
+    image: cubeearth/remote-desktop
+    ports:
+    - "2222:22"
+#    environment:
+#    - PASSWORD=a 
+    volumes:
+    - $HOME/.ssh/authorized_keys:/home/desktop/.ssh/authorized_keys:ro
+    - $HOME/.containers/xpra/sockets:/var/run/xpra:rw
+#    - /tmp/.X11-unix:/tmp/.X11-unix:rw
+
