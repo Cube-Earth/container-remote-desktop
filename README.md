@@ -22,7 +22,7 @@ You should provide the environment variable ```PASSWORD``` for the container exe
 # Example usage
 ## Startup
 ```
-curl -o docker-compose.yml https://raw.githubusercontent.com/Cube-Earth/container-headless-desktop/master/docker-compose-example.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/Cube-Earth/container-remote-desktop/master/docker-compose-example.yml
 
 docker-compose up -d
 ```
