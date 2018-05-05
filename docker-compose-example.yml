@@ -1,13 +1,13 @@
 version: '2'
 services:
   headless:
-    image: cubeearth/headless-desktop
+    image: cubeearth/headless-desktop:ubuntu_bionec
     environment:
       - STARTUP=xclock
     volumes:
     - $HOME/.containers/xpra/sockets:/var/run/xpra:rw
   remote:
-    image: cubeearth/remote-desktop
+    image: cubeearth/remote-desktop:ubuntu_bionec
     ports:
     - "2222:22"
     - "3389:3389"

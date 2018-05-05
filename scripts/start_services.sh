@@ -1,5 +1,5 @@
 #!/bin/bash
-nohup Xorg -dpi 96 -noreset -nolisten tcp +extension GLX +extension RANDR +extension RENDER -logfile ~desktop/.vnc/Xdummy-1.log -config ~/.vnc/xorg.conf :1 > /dev/null 2>&1 &
+nohup sudo Xorg -dpi 96 -noreset -nolisten tcp +extension GLX +extension RANDR +extension RENDER -logfile ~desktop/.vnc/Xdummy-1.log -config ~/.vnc/xorg.conf :1 > /dev/null 2>&1 &
 export DISPLAY=:1
 nohup openbox-session > ~/.vnc/openbox.log 2>&1 &
 

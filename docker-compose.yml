@@ -7,7 +7,7 @@ services:
             - http_proxy
             - https_proxy
             - no_proxy
-    image: cubeearth/remote-desktop
+    image: cubeearth/remote-desktop:ubuntu_bionec
     ports:
     - "2222:22"
     - "3389:3389"
