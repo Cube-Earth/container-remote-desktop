@@ -1,5 +1,5 @@
 # ssh -L 5900:localhost:5900 desktop@localhost -p 2222
-FROM cubeearth/headless-desktop:ubuntu_bionec
+FROM cubeearth/headless-desktop:ubuntu_bionic
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y openssh-server x11vnc && \
 	mkdir /var/run/sshd && \
