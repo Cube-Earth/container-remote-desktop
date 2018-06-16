@@ -1,6 +1,13 @@
 #!/bin/bash
-nohup sudo Xorg -dpi 96 -noreset -nolisten tcp +extension GLX +extension RANDR +extension RENDER -logfile ~desktop/.vnc/Xdummy-1.log -config ~/.vnc/xorg.conf :1 > /dev/null 2>&1 &
+nohup Xorg -dpi 96 -noreset -nolisten tcp +extension GLX +extension RANDR +extension RENDER -logfile .vnc/Xdummy-1.log -config vnc-xorg.conf :1 > /dev/null 2>&1 &
 export DISPLAY=:1
+
+while ! xset -q > /dev/null 2>&1
+do
+	echo "waiting ..."
+	sleep 1
+done
+
 nohup openbox-session > ~/.vnc/openbox.log 2>&1 &
 
 # Reset xfce4 panel settings:
@@ -42,5 +49,5 @@ then
 
 fi
 
-nohup x11vnc -localhost -usepw -display :1 -geometry 1024x768 -forever -bg > ~desktop/.vnc/x11vnc.log 2>&1
+nohup x11vnc -localhost -usepw -display :1 -geometry 1024x768 -forever -bg -noxdamage > ~desktop/.vnc/x11vnc.log 2>&1
 websockify -D --web /home/desktop/noVNC/ 6080 127.0.0.1:5900

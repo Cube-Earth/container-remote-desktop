@@ -22,7 +22,9 @@ RUN apt-get update && apt-get install -y xdm openbox obconf obmenu fbpanel gpick
     mkdir -p /home/desktop/.config/openbox /home/desktop/.local/share/applications /home/desktop/.config/fbpanel && \
     cp /etc/xdg/openbox/rc.xml /home/desktop/.config/openbox/rc.xml && \
     cp /usr/share/fbpanel/default /usr/share/fbpanel/pager /home/desktop/.config/fbpanel/ && \
-    chown -R desktop /home/desktop/.config/ /home/desktop/.local/
+    chown -R desktop /home/desktop/.config/ /home/desktop/.local/ && \
+    sed -i'' 's/allowed_users=.*/allowed_users=anybody/' /etc/X11/Xwrapper.config
+
 
 RUN apt-get install -y xrdp && \
 	cd /etc/xrdp && xrdp-keygen xrdp
@@ -37,6 +39,8 @@ COPY startwm.sh /etc/xrdp/
 
 COPY scripts/*.sh /usr/scripts/
 RUN chmod -R +x /usr/scripts
+
+COPY files/ /
 
 COPY home/ /home/desktop/
 RUN chown -R desktop /home/desktop

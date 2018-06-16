@@ -7,7 +7,7 @@ services:
     volumes:
     - $HOME/.containers/xpra/sockets:/var/run/xpra:rw
   remote:
-    image: cubeearth/remote-desktop:ubuntu_bionec
+    image: cubeearth/remote-desktop:ubuntu_bionic
     ports:
     - "2222:22"
     - "3389:3389"
