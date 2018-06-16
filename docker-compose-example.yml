@@ -1,7 +1,7 @@
 version: '2'
 services:
   headless:
-    image: cubeearth/headless-desktop:ubuntu_bionec
+    image: cubeearth/headless-desktop:ubuntu_bionic
     environment:
       - STARTUP=xclock
     volumes:
