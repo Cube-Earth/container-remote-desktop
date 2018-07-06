@@ -27,6 +27,8 @@ RUN apt-get update && apt-get install -y xdm openbox obconf obmenu fbpanel gpick
 
 RUN apt-get install -y xrdp && \
 	cd /etc/xrdp && xrdp-keygen xrdp
+	
+RUN cp /etc/xpra/xorg.conf /etc/X11/xpra-xorg.conf
 
 # xrdp-genkeymap for switching keyboard layout??    
 
